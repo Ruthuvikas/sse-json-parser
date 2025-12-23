@@ -1,5 +1,8 @@
 # SSE JSON Parser
 
+[![PyPI version](https://badge.fury.io/py/sse-json-parser.svg)](https://badge.fury.io/py/sse-json-parser)
+
+
 A lightweight, robust Python library for parsing Server-Sent Events (SSE) streams, specifically optimized for **AI Agents** and **LLM Streaming**.
 
 ## Why use this for Agents?
