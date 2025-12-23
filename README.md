@@ -69,9 +69,11 @@ adapter = BotoStreamAdapter(response['body'])
 parser = SSEParser()
 
 for event in parser.parse(adapter):
-    if 'bytes' in event:
-        # Bedrock sends bytes in the JSON payload
-        print(event['bytes'], end='')
+    # 'event' is the dictionary returned by the API
+    if 'chunk' in event:
+         print(event['chunk'].get('bytes', b'').decode('utf-8'), end='')
+    elif 'completion' in event:
+         print(event['completion'], end='')
 ```
 
 ### 3. Basic Usage

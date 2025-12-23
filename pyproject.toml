@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sse-json-parser"
-version = "0.1.1"
+version = "0.1.2"
 description = "A lightweight SSE stream parser for extracting JSON payloads."
 readme = "README.md"
 authors = [
