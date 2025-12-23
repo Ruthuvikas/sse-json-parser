@@ -19,8 +19,6 @@ except ImportError:
     print("Please install dependencies: pip install langgraph langchain-openai")
     sys.exit(1)
 
-# fake add to path
-sys.path.append('src')
 from sse_json_parser import SSEParser
 
 def mock_sse_generator(agent_stream):
