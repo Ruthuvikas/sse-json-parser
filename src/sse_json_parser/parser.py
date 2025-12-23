@@ -1,12 +1,15 @@
 import json
 from typing import Generator, Any, Iterable, Union
 
+import codecs
+
 class SSEParser:
     """
     Parses a stream of bytes or strings into JSON objects from SSE 'data' fields.
     """
     def __init__(self):
         self._buffer = ""
+        self._decoder = codecs.getincrementaldecoder("utf-8")(errors='strict')
 
     def parse(self, stream: Iterable[Union[str, bytes]]) -> Generator[Any, None, None]:
         """
@@ -14,7 +17,7 @@ class SSEParser:
         """
         for chunk in stream:
             if isinstance(chunk, bytes):
-                chunk = chunk.decode('utf-8')
+                chunk = self._decoder.decode(chunk, final=False)
             
             self._buffer += chunk
             
