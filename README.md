@@ -71,7 +71,7 @@ parser = SSEParser()
 for event in parser.parse(adapter):
     # 'event' is the dictionary returned by the API
     if 'chunk' in event:
-         print(event['chunk'].get('bytes', b'').decode('utf-8'), end='')
+         print(event['chunk'].get('bytes', b''), end='')
     elif 'completion' in event:
          print(event['completion'], end='')
 ```
