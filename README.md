@@ -71,7 +71,7 @@ parser = SSEParser()
 for event in parser.parse(adapter):
     if 'bytes' in event:
         # Bedrock sends bytes in the JSON payload
-        print(event['bytes'].decode('utf-8'), end='')
+        print(event['bytes'], end='')
 ```
 
 ### 3. Basic Usage
